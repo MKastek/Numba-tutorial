@@ -308,9 +308,9 @@ class FractionalAbundance:
         -------
 
         """
-        for i in range(self.Z):
+        for i in range(self.Z+1):
             x = self.Te_new
-            y = self.FA_arr[i + 1][:, index_Ne]
+            y = self.FA_arr[i][:, index_Ne]
             plt.plot(x, y, label="$" + self.element + "^{" + str(i) + "+}$")
             plt.xscale("log")
             plt.yscale("log")
@@ -381,7 +381,7 @@ class FractionalAbundance:
 
 if __name__ == "__main__":
     path_to_data = r"C:\Users\marci\Desktop\Projekt NCN\Zadania\1.Styczeń\Fractional_Abundance\data\unresolved"
-    FA = FractionalAbundance(element="Xe", concurrent=True, path_to_data=path_to_data)
-    print(FA.K)
+    FA = FractionalAbundance(element="He", concurrent=True, path_to_data=path_to_data)
+    FA.plot_FA_all()
 
 
